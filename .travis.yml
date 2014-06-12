@@ -1,0 +1,11 @@
+language: node_js
+node_js: 
+- 0.10
+before_script: 
+  - npm install karma karma-browserstack
+script:
+  - node ./node_modules/.bin/browserstack-runner
+env:
+  global:
+    - BROWSERSTACK_USERNAME=amitu
+    - secure: "dhaOR/0YLGlDj/AKFDgTbKx+6OXNt54XLVXvF0/+xCDT2UMPF0x0Z6+Zmw8F3NS9v7pHAIwUbM/dkAAIJCrWgvozxfRTW+oNPTrdw6CBS+C+BGxVkXh4TxXDJNuGHi6YNttEFnqPNgkynoEbXuvLj8Eem/nJyvqh0++doHHBmwQ="
