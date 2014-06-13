@@ -20,6 +20,8 @@ driver = webdriver.Remote(
 )
 
 driver.get("https://localhost:8000")
-assert "foo" == driver.title.encode("utf8")
+title = driver.title.encode("utf8")
+
+assert "foo" == title, title
 
 driver.quit()
