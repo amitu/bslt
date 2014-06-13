@@ -1,0 +1,25 @@
+import os
+from selenium import webdriver
+
+user = os.environ["BROWSERSTACK_USER"]
+key  = os.environ["BROWSERSTACK_KEY"]
+
+desired_cap = {
+	'browser': 'IE', 
+	'browser_version': '8.0', 
+	'os': 'Windows', 
+	'os_version': '7',
+
+	'browserstack.local': True,
+	"browserstack.debug": True,
+}
+
+driver = webdriver.Remote(
+    command_executor='https://%s:%s@hub.browserstack.com/wd/hub' % (user, key),
+    desired_capabilities=desired_cap
+)
+
+driver.get("https://localhost:8000")
+assert "foo" == driver.title.encode("utf8")
+
+driver.quit()

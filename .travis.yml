@@ -1,10 +1,14 @@
-language: node_js
-node_js: 
-- 0.10
+language: python
+python: 
+- 2.7
+
 before_script: 
-  - npm install karma karma-browserstack
+  - python -m SimpleHTTPServer &
+  - pip install browserstack-local selenium --use-mirrors --quiet
+  - browserstack-local BROWSERSTACK_KEY localhost,8000,0 &
+  - sleep 10
 script:
-  - node ./node_modules/.bin/browserstack-runner
+  - python test.py
 env:
   global:
     - BROWSERSTACK_USERNAME=amitu
