@@ -1,7 +1,7 @@
 import os
 from selenium import webdriver
 
-user = os.environ["BROWSERSTACK_USER"]
+user = os.environ["BROWSERSTACK_USERNAME"]
 key  = os.environ["BROWSERSTACK_KEY"]
 
 desired_cap = {
