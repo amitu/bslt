@@ -19,7 +19,7 @@ driver = webdriver.Remote(
     desired_capabilities=desired_cap
 )
 
-driver.get("https://localhost:8000")
+driver.get("http://localhost:8000")
 title = driver.title.encode("utf8")
 
 assert "foo" == title, title
