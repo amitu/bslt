@@ -22,6 +22,6 @@ driver = webdriver.Remote(
 driver.get("http://localhost:8000")
 title = driver.title.encode("utf8")
 
-assert "foo" == title, title
+assert "Directory listing for /" == title, title
 
 driver.quit()
