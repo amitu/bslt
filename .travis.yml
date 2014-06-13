@@ -1,14 +1,14 @@
-"":
-  travis: 
-    yml: 
-      secure: IR0wK5lUp7keGUgxFq0OE7vz4dUtAJbOexJjlHLa7ioMHoNXGr1x9we1W7XU/b0+X0TwPLQKy8CZnlNowPBQNJcVKM8DMtqeH90GaimY4kD8BTC5gS0PWLS4P9cfCA/Px/OT2ynvR7dVfSTyEg7EDe2q3PUL9D6u1G9YHMpAQAo=
+env:
+  global:
+    - BROWSERSTACK_USERNAME=amitu
+    - secure: IR0wK5lUp7keGUgxFq0OE7vz4dUtAJbOexJjlHLa7ioMHoNXGr1x9we1W7XU/b0+X0TwPLQKy8CZnlNowPBQNJcVKM8DMtqeH90GaimY4kD8BTC5gS0PWLS4P9cfCA/Px/OT2ynvR7dVfSTyEg7EDe2q3PUL9D6u1G9YHMpAQAo=
 before_script: 
-- python -m SimpleHTTPServer &
-- pip install browserstack-local selenium --use-mirrors --quiet
-- browserstack-local BROWSERSTACK_KEY localhost,8000,0 &
-- sleep 10
+    - python -m SimpleHTTPServer &
+    - pip install browserstack-local selenium --use-mirrors --quiet
+    - browserstack-local $BROWSERSTACK_KEY localhost,8000,0 &
+    - sleep 10
 python: 
-- 2.7
+    - 2.7
 language: python
 script: 
-- python test.py
+    - python test.py
